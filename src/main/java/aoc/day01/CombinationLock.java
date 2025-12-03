@@ -31,6 +31,8 @@ public class CombinationLock {
         
         newDialPosition = (roundTripSteps + currentDialPosition + adjustedNumOfSteps) %  roundTripSteps;
 
+        if (newDialPosition == 0 ) preciselyZeroCounter++;
+
         return newDialPosition;
 
     }
