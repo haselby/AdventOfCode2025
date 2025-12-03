@@ -36,7 +36,7 @@ public class CombinationLock {
 
         // Count times click thru zero
 
-        int numberOfRoundTrips = steps / roundTripSteps; // Integer Div
+        int numberOfRoundTrips = Math.abs(steps / roundTripSteps); // Integer Div
 
         // Check whether adjusted steps cross zero. Do not count if starting at zero and moving negative.
         if ((currentDialPosition + adjustedNumOfSteps < minDialIndex) && (currentDialPosition != minDialIndex)) {
