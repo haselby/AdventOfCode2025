@@ -5,6 +5,7 @@ public class CombinationLock {
     private int maxDialIndex = 99;
     private int roundTripSteps = (maxDialIndex + 1) - minDialIndex;
     private int preciselyZeroCounter = 0;
+    private int clickThruZeroCounter = 0;
     private int currentDialPosition;
     private int newDialPosition;
 
@@ -33,6 +34,20 @@ public class CombinationLock {
 
         if (newDialPosition == 0 ) preciselyZeroCounter++;
 
+        // Count times click thru zero
+
+        int numberOfRoundTrips = steps / roundTripSteps; // Integer Div
+
+        // Check whether adjusted steps cross zero. Do not count if starting at zero and moving negative.
+        if ((currentDialPosition + adjustedNumOfSteps < minDialIndex) && (currentDialPosition != minDialIndex)) {
+            clickThruZeroCounter = clickThruZeroCounter + numberOfRoundTrips + 1;
+        } else if ((currentDialPosition + adjustedNumOfSteps > maxDialIndex) && (newDialPosition != minDialIndex)){
+            clickThruZeroCounter = clickThruZeroCounter + numberOfRoundTrips + 1;
+        } else  {
+            clickThruZeroCounter = clickThruZeroCounter + numberOfRoundTrips;
+        }
+
+
         return newDialPosition;
 
     }
@@ -45,5 +60,8 @@ public class CombinationLock {
         return preciselyZeroCounter;
     }
     
+    public int getClickThruZeroCounter(){
+        return clickThruZeroCounter;
+    }
     
 }

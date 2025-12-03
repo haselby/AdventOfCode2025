@@ -21,8 +21,8 @@ public class Part1Solver implements Solver {
 
             int answer = safe.getPreciselyZeroCounter();
 
-            
             return String.valueOf(answer);
+
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }

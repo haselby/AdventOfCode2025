@@ -1,5 +1,7 @@
 package aoc.day01;
 
+import java.util.List;
+
 import aoc.Solver;
 
 /**
@@ -10,8 +12,19 @@ public class Part2Solver implements Solver {
     @Override
     public String solve(String input) {
         try {
-            // TODO: Implement solution for Day 1, Part 2
-            return "Not yet implemented";
+            //Solution for Day 1, Part 2
+
+            List<String> sequenceOfRotations = input.lines().toList();
+
+            CombinationLock safe = new CombinationLock(50);
+            for (String rotation : sequenceOfRotations) {
+                safe.rotate(rotation);
+            }
+
+            int answer = safe.getPreciselyZeroCounter() + safe.getClickThruZeroCounter();
+
+            return String.valueOf(answer);
+            
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }

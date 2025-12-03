@@ -9,7 +9,7 @@ public class MainRunner {
     public static void main(String[] args) {
         // Change these values to run different days and parts
         int day = 1;
-        int part = 1;
+        int part = 2;
         
         try {
             // Load the input file for the specified day
